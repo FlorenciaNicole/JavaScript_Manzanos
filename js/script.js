@@ -1,50 +1,31 @@
-let nombre = prompt('Ingresa tu nombre para acceder a la información');
+//Calcular interes de un monto
+let monto = parseFloat(prompt('¡Bienvenido/a! \nIngrese el monto que desea calcular'));
+let opcionCuotas = prompt('Seleccione en cuantas cuotas lo quiere abonar: \n1 - 1 cuota sin interés \n2 - 2 y 3 cuotas con 10% de interés \n3 - 6 cuotas con 18% de interés \n4 - 9 cuotas con 24% de interés \n5 - 12 cuotas con 5% de interés \n0 - SALIR ')
 
-alert('Bienvenido/a ' + nombre, )
-
-let nombreHijo = prompt('Ingresa el nombre de tu hijo/a');
-
-let opcion = prompt('Cuantos meses tiene ' + nombreHijo + '? Elegí una opción: \n1- Recien nacido. \n2 - 2 meses. \n3 - 3 meses. \n4 - 4 meses. \n5 - 5 meses. \n6 - 6 meses. \n7 - 12 meses. \n8 - 15 meses. \n9 - 18 meses. \n10 - 24 meses. \nPresioná X para finalizar.')
-
-while (opcion != 'X' && opcion != 'x') {
-
-    switch (opcion) {
+while (opcionCuotas != '0') {
+    switch (opcionCuotas) {
         case '1':
-            alert('Señor/a ' + nombre + ' debe darle la BCG y la Hepatitis B a ' + nombreHijo + '.');
+            alert('El monto a pagar es $' + monto);
             break;
         case '2':
-            alert('Señor/a ' + nombre + ' debe darle la Neumococo Conjugada a ' + nombreHijo + '.');
+            alert('El monto a pagar es $' + (suma = parseFloat(monto) + parseFloat(monto * 10 / 100)));
             break;
         case '3':
-            alert('Señor/a ' + nombre + ' debe darle la Meningococo Conjugada Cuadrivalente, 1º dosis a ' + nombreHijo + '.');
+            alert('El monto a pagar es $' + (suma = parseFloat(monto) + parseFloat(monto * 18 / 100)));
             break;
         case '4':
-            alert('Señor/a ' + nombre + ' debe darle la Rotavirusa ' + nombreHijo + '.');
+            alert('El monto a pagar es $' + (suma = parseFloat(monto) + parseFloat(monto * 24 / 100)));
             break;
         case '5':
-            alert('Señor/a ' + nombre + ' debe darle la Meningococo Conjugada Cuadrivalente, 2º dosis a ' + nombreHijo + '.');
-            break;
-        case '6':
-            alert('Señor/a ' + nombre + ' debe darle la Polio IPV a ' + nombreHijo + '.');
-            break;
-        case '7':
-            alert('Señor/a ' + nombre + ' debe darle la Hepatitis A y Triple Viral a ' + nombreHijo + '.');
-            break;
-        case '8':
-            alert('Señor/a ' + nombre + ' debe darle la vacuna de la Varicela a ' + nombreHijo + '.');
-            break;
-        case '9':
-            alert('Señor/a ' + nombre + ' debe darle la Cuádruple o Quíntuple Pentavalente Celular, 1º refuerzo y la vacuna de la Gripea ' + nombreHijo + '.');
-            break;
-        case '10':
-            alert('Señor/a ' + nombre + ' debe darle la vacuna de la Gripe a ' + nombreHijo + '.');
+            alert('El monto a pagar es $' + (suma = parseFloat(monto) + parseFloat(monto * 5 / 100)));
             break;
 
         default:
-            alert('La opción ingresada no existe');
+            alert('Opción incorrecta');
             break;
     }
-    opcion = prompt('¿Cuantos meses tiene ' + nombreHijo + '? Elegí una opción: \n1- Recien nacido. \n2 -  meses. \n3 - 3 meses. \n4 - 4 meses. \n5 - 5 meses. \n6 - 6 meses. \n7 - 12 meses. \n8 - 15 meses. \n9 - 18 meses. \n10 - 24 meses. \nPresioná X para finalizar.')
+    monto = parseFloat(prompt('¡Bienvenido/a! \nIngrese el monto que desea calcular'));
+    opcionCuotas = prompt('Seleccione en cuantas cuotas lo quiere abonar: \n1 - 1 cuota sin interés \n2 - 2 y 3 cuotas con 10% de interés \n3 - 6 cuotas con 18% de interés \n4 - 9 cuotas con 24% de interés \n5 - 12 cuotas con 5% de interés \n0 - SALIR ')
 }
 
-alert('¡Gracias por su visita!')
+alert('Esperamos que le haya sido util, que tenga buen dia!')
