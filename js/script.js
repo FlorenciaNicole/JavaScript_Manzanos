@@ -1,59 +1,48 @@
 //Desafio Primera Preentrega
-const carrito = ['Hierbas', 'Frutos rojos'];
+const carrito = [];
 const variedades = [{
-        id: 'Frutilla',
+        id: 'Manzanilla',
         precio: 250
     },
     {
-        id: 'Hierbas',
+        id: 'Té Verde',
         precio: 250
     },
     {
-        id: 'Rosa Mosqueta',
-        precio: 250
+        id: 'Frutos Rojos',
+        precio: 350
     },
     {
         id: 'Limon y Jengibre',
-        precio: 250
+        precio: 350
     },
     {
-        id: 'Frutos rojos',
-        precio: 300
+        id: 'Variety Pack',
+        precio: 400
     },
     {
-        id: 'Frutos azules',
-        precio: 300
+        id: 'Menta Peperina',
+        precio: 350
     }
 ]
-console.log(variedades)
 
-variedades.unshift({
-    id: 'Manzanilla',
-    precio: '200'
-})
-console.log(variedades)
 
-console.log(carrito.includes('Hierbas'))
-console.log(carrito.includes('Manzanilla'))
+document.querySelector('h1').textContent = 'Venta de infusiones con beneficios para la salud'
 
-const oferta = variedades.filter((variedad) => variedad.precio < 300);
-console.log(oferta);
+let nuevoDiv = document.createElement('div');
+nuevoDiv.innerHTML = '<p> TIP: Tomarse un té o una infusión después de comer es una buena costumbre que muchos tienen. Sin embargo, beber tu té en ayunas puede permitirte, según algunos estudios, aprovechar mejor sus propiedades. </p>';
+document.body.append(nuevoDiv);
 
-const premium = variedades.filter((variedad) => variedad.precio >= 300);
-console.log(premium);
+let entrada = prompt('Ingresa tu nombre')
+let tarjeta = document.createElement('Div')
+tarjeta.className = 'card'
+tarjeta.innerHTML = `<h2> Bienvenido/a, ${entrada}</h2>
+<img src="./img/taza.jpg" height="500" width="300">`
 
-const precioDescuento = variedades.map((variedad) => {return{ id: variedad.id, precio: variedad.precio*.90}})
+nuevoDiv.prepend(tarjeta)
 
-console.log(precioDescuento);
 
-//No se porque no los suma, sino que los concatena
 
-const precioTotal = variedades.reduce((ac,variedad)=>{return ac+=variedad.precio},0);
 
-console.log(precioTotal);
-
-let keyword =prompt('Ingresa el sabor del Té')
-const saborEncontrado = variedades.filter((variedad)=>variedad.id.includes(keyword));
-console.log(saborEncontrado)
 
 
