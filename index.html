@@ -50,8 +50,8 @@
             </div>
         </div>
     </nav>
-    <h1>Venta de Infusiones</h1>
-    <section id="seccionProductos">
+
+   <!--  <section id="seccionProductos">
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col d-flex justify-content-evenly">
                 <div class="card bg-light" style="width: 18rem;">
@@ -121,8 +121,24 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
+    <div class="container">
+        <div class="row">
+            
+            <main id="items" class="col-sm-8 row"></main>
+            
+            <aside class="col-sm-4">
+                <h2>Carrito</h2>
+                
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                
+                <p class="text-right">Total: $ <span id="total"></span></p>
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+            </aside>
+        </div>
+    </div>
 
     <script src="./js/script.js"></script>
 </body>
