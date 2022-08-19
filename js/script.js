@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const miNodoBoton = document.createElement('button');
             miNodoBoton.classList.add('btn', 'btn-success');
-            miNodoBoton.textContent = '+';
+            miNodoBoton.textContent = 'Comprar';
             miNodoBoton.setAttribute('marcador', info.id);
             miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
 
@@ -201,8 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
             miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${divisa}${miItem[0].precio}`;
             // Boton de borrar
             const miBoton = document.createElement('button');
-            miBoton.classList.add('btn', 'btn-info', 'mx-5');
-            miBoton.textContent = 'X';
+            miBoton.classList.add('btn', 'btn-info', 'mx-2');
+            miBoton.textContent = 'Eliminar';
             miBoton.style.marginLeft = '1rem';
             miBoton.dataset.item = item;
             miBoton.addEventListener('click', borrarItemCarrito);
@@ -279,3 +279,26 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarProductos();
     renderizarCarrito();
 });
+
+//SweetAlert
+
+const btn = document.querySelector('#boton-vaciar')
+btn.addEventListener('click', () => {
+
+    Swal.fire(
+        {
+            title: 'Tu carrito esta vacío',
+            icon: 'warning',
+            confirmButtonColor: '#387D39'
+        }
+    )
+})
+
+//No se como llamar al boton 'COMPRAR'
+
+miNodoBoton.onclick=()=>{
+    Toastify({
+        text:'Producto agregado al carrito',
+        duration: 1500,
+    }).showToast();
+}
