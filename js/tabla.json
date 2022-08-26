@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "nombre": "Manzanilla",
+        "estado": false
+    },
+    {
+        "id": 2,
+        "nombre": "Té Verde",
+        "estado": false
+    },
+    {
+        "id": 3,
+        "nombre": "Frutos Rojos",
+        "estado": true
+    },
+    {
+        "id": 4,
+        "nombre": "Limón y Jengibre",
+        "estado": true
+    }
+]

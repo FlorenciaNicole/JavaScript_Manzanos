@@ -285,20 +285,49 @@ document.addEventListener('DOMContentLoaded', () => {
 const btn = document.querySelector('#boton-vaciar')
 btn.addEventListener('click', () => {
 
-    Swal.fire(
-        {
-            title: 'Tu carrito esta vacío',
-            icon: 'warning',
-            confirmButtonColor: '#387D39'
-        }
-    )
+    Swal.fire({
+        title: 'Tu carrito esta vacío',
+        icon: 'warning',
+        confirmButtonColor: '#387D39'
+    })
 })
 
 //No se como llamar al boton 'COMPRAR'
 
-miNodoBoton.onclick=()=>{
+miNodoBoton.onclick = () => {
     Toastify({
-        text:'Producto agregado al carrito',
+        text: 'Producto agregado al carrito',
         duration: 1500,
     }).showToast();
 }
+
+//FETCH
+
+
+var contenido = document.querySelector('#contenido')
+
+        function traer() {
+            fetch('tabla.json')
+                .then(res => res.json())
+                .then(datos => {
+                    console.log(datos)
+                    tabla(datos)
+                })
+        }
+
+        function tabla(datos) {
+         console.log(datos)
+            contenido.innerHTML = ''
+            for(let valor of datos){
+                console.log(valor.nombre)
+                contenido.innerHTML += `
+                
+                <tr>
+                    <th scope="row">
+                    <td>${ valor.nombre }</td>
+                    <td>${ valor.estado ? "Tenemos stock" : "Sin stock" }</td>
+                </tr>
+                
+                `
+            }
+        }

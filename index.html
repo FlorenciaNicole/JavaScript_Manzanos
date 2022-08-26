@@ -123,7 +123,7 @@
         </div>
     </section> -->
 
-    <div class="container">
+    <div class="container seccionProductos">
         <div class="row">
 
             <main id="items" class="col-sm-8 row"></main>
@@ -137,6 +137,23 @@
                 <p class="text-right">Total: $ <span id="total"></span></p>
                 <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
             </aside>
+        </div>
+
+        <div class="container my-5 text-center">
+            <button class="btn btn-info w-100" onclick="traer()">Actualizar Stock</button>
+            <div class="mt-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenido">
+                        
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
