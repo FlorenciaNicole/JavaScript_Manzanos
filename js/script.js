@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire({
-                title: `Bienvenido/a ${result.value.login}, ya podes empezar a comprar tus infuciones favoritas!`,
+                title: `Bienvenido/a ${result.value.login}, ya podes empezar a comprar tus infusiones favoritas!`,
                 imageUrl: './img/taza.jpg'
             })
         }
