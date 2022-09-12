@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infusiones MZN</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
@@ -51,77 +52,6 @@
         </div>
     </nav>
 
-    <!--  <section id="seccionProductos">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col d-flex justify-content-evenly">
-                <div class="card bg-light" style="width: 18rem;">
-                    <h5 class="card-header">Manzanilla</h5>    
-                    <img id="Manzanilla" src="./img/manzanillaSaquito.jpg" class="card-img-top" alt="Manzanilla">
-                    <div class="card-footer">
-                        <div>    
-                            <label for="saquitoManzanilla">Té en saquitos</label>
-                            <input type="radio" name="TipodeTe" id="saquitos" class="radiobutton" value="saquitos" checked> 
-                            <br>
-                            <label for="hebrasManzanilla">Té en hebras</label>
-                            <input type="radio" name="tipodeTe" id="hebras" class="radiobutton" value="hebras">
-                            </div> 
-                        <p class="card-text"><strong>$250</strong></p>
-                        <a href="#" id="btnComprar" class="btn btn-primary botonComprar">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col d-flex justify-content-evenly">
-                <div class="card bg-light" style="width: 18rem;">
-                    <h5 class="card-header">Té Verde</h5>
-                    <img src="./img/teverdeSaquito.jpg" class="card-img-top" alt="Verde">
-                    <div class="card-footer">
-                        <p class="card-text"><strong>$250</strong></p>
-                        <a href="#" class="btn btn-primary botonComprar">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col d-flex justify-content-evenly">
-                <div class="card bg-light" style="width: 18rem;">
-                    <h5 class="card-header">Frutos Rojos</h5>
-                    <img src="./img/frutosrojosSaquito.jpg" class="card-img-top" alt="Rojos">
-                    <div class="card-footer">
-                        <p class="card-text"><strong>$350</strong></p>
-                        <a href="#" class="btn btn-primary botonComprar">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col d-flex justify-content-evenly">
-                <div class="card bg-light" style="width: 18rem;">
-                    <h5 class="card-header">Limón y Jengibre</h5>
-                    <img src="./img/limonSaquito.jpg" class="card-img-top" alt="Limon">
-                    <div class="card-footer">
-                        <p class="card-text"><strong>$350</strong></p>
-                        <a href="#" class="btn btn-primary botonComprar">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col d-flex justify-content-evenly">
-                <div class="card bg-light" style="width: 18rem;">
-                    <h5 class="card-header">Menta Peperina</h5>
-                    <img src="./img/mentaSaquito.jpg" class="card-img-top" alt="Menta">
-                    <div class="card-footer">
-                        <p class="card-text"><strong>$350</strong></p>
-                        <a href="#" class="btn btn-primary botonComprar">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col d-flex justify-content-evenly">
-                <div class="card bg-light" style="width: 18rem;">
-                    <h5 class="card-header">Variety Pack</h5>
-                    <img src="./img/variedadSaquito.jpg" class="card-img-top" alt="Variedad">
-                    <div class="card-footer">
-                        <p class="card-text"><strong>$400</strong></p>
-                        <a href="#" class="btn btn-primary botonComprar">Comprar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <div class="container seccionProductos">
         <div class="row">
@@ -136,25 +66,10 @@
 
                 <p class="text-right">Total: $ <span id="total"></span></p>
                 <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+                <button class="btn btn-warning" id="comprar-carrito">Comprar</button>
             </aside>
         </div>
 
-        <div class="container my-5 text-center">
-            <button class="btn btn-info w-100" onclick="traer()">Actualizar Stock</button>
-            <div class="mt-5">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody id="contenido">
-                        
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </div>
 
     <footer class="bg-dark text-center text-white">
@@ -202,6 +117,7 @@
         </div>
 
     </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/script.js"></script>
 </body>

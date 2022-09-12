@@ -40,82 +40,39 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
 
 
-    /* document.querySelector('h1').textContent = 'Venta de infusiones con beneficios para la salud'
-
-    let nuevoDiv = document.createElement('div');
-    nuevoDiv.innerHTML = '<p> TIP: Tomarse un té o una infusión después de comer es una buena costumbre que muchos tienen. Sin embargo, beber tu té en ayunas puede permitirte, según algunos estudios, aprovechar mejor sus propiedades. </p>';
-    document.body.append(nuevoDiv);
-
-    let entrada = prompt('Ingresa tu nombre')
-    let tarjeta = document.createElement('Div')
-    tarjeta.className = 'card'
-    tarjeta.innerHTML = `<h2> Bienvenido/a, ${entrada}</h2>
-    <img src="./img/taza.jpg" height="500" width="300">`
-
-    nuevoDiv.prepend(tarjeta) */
-
-    /* let radioSaquito = document.getElementById('saquitos');
-    let radioHebras = document.getElementById('hebras');
-    const btnConfirmar = document.getElementById('btnComprar')
-
-    function cambiarImagen(source) {
-        document.getElementById('Manzanilla').src = source;
-    }
-
-    radioSaquito.addEventListener('click', () => {
-        cambiarImagen('./img/manzanillaSaquito.jpg');
+    Swal.fire({
+        title: '¡Buen día! Ingresa tu nombre para acceder al sitio',
+        input: 'text',
+        inputAttributes: {
+            autocapitalize: 'off'
+        },
+        showCancelButton: true,
+        confirmButtonText: 'Confirmar',
+        showLoaderOnConfirm: true,
+        preConfirm: (login) => {
+            return fetch(`//api.github.com/users/${login}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(response.statusText)
+                    }
+                    return response.json()
+                })
+                .catch(error => {
+                    Swal.showValidationMessage(
+                        `Request failed: ${error}`
+                    )
+                })
+        },
+        allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: `Bienvenido/a ${result.value.login}, ya podes empezar a comprar tus infuciones favoritas!`,
+                imageUrl: './img/taza.jpg'
+            })
+        }
     })
-    radioHebras.addEventListener('click', () => {
-        cambiarImagen('./img/manzanillaHebras.jpg');
-    })
 
-    btnComprar.onclick = () => {
-        alert(('Se agregará al carrito Té de Manzanilla'));
-
-    }; */
-
-    //local storage json
-
-    /* class Carrito {
-        constructor(clave) {
-            this.clave = clave || "productos";
-            this.productos = this.obtener();
-        }
-
-        agregar(producto) {
-            if (!this.existe(producto.id)) {
-                this.productos.push(producto);
-                this.guardar();
-            }
-        }
-
-        quitar(id) {
-            const indice = this.productos.findIndex(p => p.id === id);
-            if (indice != -1) {
-                this.productos.splice(indice, 1);
-                this.guardar();
-            }
-        }
-
-        guardar() {
-            localStorage.setItem(this.clave, JSON.stringify(this.productos));
-        }
-
-        obtener() {
-            const productosCodificados = localStorage.getItem(this.clave);
-            return JSON.parse(productosCodificados) || [];
-        }
-
-        existe(id) {
-            return this.productos.find(producto => producto.id === id);
-        }
-
-        obtenerConteo() {
-            return this.productos.length;
-        }
-
-
-    } */
 
 
     let carrito = [];
@@ -175,6 +132,18 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarCarrito();
 
         guardarCarritoEnLocalStorage();
+
+        Toastify({
+            text: "Producto agregado al carrito",
+            className: "agregar",
+            duration: 1500,
+            gravity: "bottom",
+            position: "right",
+            style: {
+                background: "linear-gradient(to right, #198754, #000000)",
+            }
+        }).showToast();
+
     }
 
 
@@ -209,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             miNodo.appendChild(miBoton);
             DOMcarrito.appendChild(miNodo);
+
         });
 
         DOMtotal.textContent = calcularTotal();
@@ -223,12 +193,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         carrito = carrito.filter((carritoId) => {
             return carritoId !== id;
+
         });
 
         renderizarCarrito();
 
         guardarCarritoEnLocalStorage();
 
+        Toastify({
+            text: "Producto eliminado",
+            className: "eliminar",
+            duration: 1500,
+            gravity: "bottom",
+            position: "right",
+            style: {
+                background: "linear-gradient(to right, #0dcaf0, #000000)",
+            }
+        }).showToast();
     }
 
 
@@ -280,6 +261,19 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarCarrito();
 });
 
+const btnComprar = document.querySelector('#comprar-carrito');
+btnComprar.addEventListener('click', () => {
+
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Has comprado todos los productos del carrito',
+        showConfirmButton: false,
+        timer: 2500
+    })
+    localStorage.clear();
+});
+
 //SweetAlert
 
 const btn = document.querySelector('#boton-vaciar')
@@ -291,43 +285,3 @@ btn.addEventListener('click', () => {
         confirmButtonColor: '#387D39'
     })
 })
-
-//No se como llamar al boton 'COMPRAR'
-
-miNodoBoton.onclick = () => {
-    Toastify({
-        text: 'Producto agregado al carrito',
-        duration: 1500,
-    }).showToast();
-}
-
-//FETCH
-
-
-var contenido = document.querySelector('#contenido')
-
-        function traer() {
-            fetch('tabla.json')
-                .then(res => res.json())
-                .then(datos => {
-                    console.log(datos)
-                    tabla(datos)
-                })
-        }
-
-        function tabla(datos) {
-         console.log(datos)
-            contenido.innerHTML = ''
-            for(let valor of datos){
-                console.log(valor.nombre)
-                contenido.innerHTML += `
-                
-                <tr>
-                    <th scope="row">
-                    <td>${ valor.nombre }</td>
-                    <td>${ valor.estado ? "Tenemos stock" : "Sin stock" }</td>
-                </tr>
-                
-                `
-            }
-        }
